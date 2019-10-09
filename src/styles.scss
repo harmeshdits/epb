@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+body
+{
+    margin: 0px;
+    padding: 15px 0;
+    background-color: #eeeeee;
+}
+
+.btn-green {
+	background-color: #058b34;
+	border-color: #058b34;
+	color: #fff;
+}
+
+.btn-green:focus {
+	box-shadow: none;
+}
+
+.btn-green:hover {
+	color: #fff;
+}
+.pad10
+{
+    padding-right: 10px!important;
+    padding-left: 10px!important;
+}
+@media screen and (max-width:991px)
+{
+	.container
+	{
+	max-width:100%;	
+	}
+}

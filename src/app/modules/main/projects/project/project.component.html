@@ -1,0 +1,12 @@
+<div class="blogDesc">
+    <div class="thumbImage"><!-- <img src="assets/images/Tile_Image.jpg" alt="image" />-->
+        <div class="buyNow" *ngIf="project.Price"><button class="btn btn-green">Buy Now</button></div>
+        <div class="price" *ngIf="project.Price">{{project.Price | currency}} / ton </div>
+        <div class="name">{{project.Location | uppercase}}</div>
+    </div>
+    <div class="thumbDesc">
+        <h2>{{project.Title}}</h2>
+        <h3>{{project.Area | number}} lbs offset</h3>
+        <p>{{project.Content}}</p>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+.blogDesc {
+	display: block;
+	margin: 0 0 20px 0;
+	.thumbImage {
+		width: 100%;
+		position: relative;
+		background-image: url('src/assets/images/Tile_Image.jpg');
+		height: 200px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		img {
+			width: 100%;
+		}
+		.buyNow {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			.btn{
+		     padding: 6px 20px;
+			}
+		}
+		.price {
+			position: absolute;
+			right: 10px;
+			top: 55px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #fff;
+			padding: 6px 12px;
+			border-radius: 4px;
+			font-size: 12px;
+			font-weight: bold;
+		}
+		.name {
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+			background: rgba(0, 0, 0, 0.5);
+			color: #fff;
+			padding: 6px 12px;
+			font-size: 14px;
+			font-weight: bold;
+		}
+	}
+	.thumbDesc {
+		background-color: #fff;
+		padding: 15px;
+		box-shadow: 0 2px 2px rgba(217,219,206,0.4);
+		
+		h2 {
+			font-size: 17px;
+			color: #D7326A;
+			font-weight: bold;
+		}
+		h3 {
+			font-size: 16px;
+			color: #12BD4A;
+			font-weight: bold;
+		}
+		p {
+			font-size: 14px;
+			margin: 0;
+			color: #474747;
+			@media screen and (max-width:1199px)
+			{
+			min-height:65px;
+			}
+		}
+	}
+}
