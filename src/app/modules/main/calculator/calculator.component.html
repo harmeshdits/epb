@@ -1,0 +1,137 @@
+<section class="blogs">
+    <div class="container">
+        <div id="uc-popup-wrapper" class="on-partner-site active">
+            <main>
+                <div class="logo text-center">
+                    <img src="assets/images/logo_no_motto.png" width="150px" alt="logo" />
+                </div>
+
+                <div class="blogDesc text-center">
+                    <p>Going Somewhere? let's calculate <br> and offset your carbon footprint!</p>
+                </div>
+
+                <div class="form-group">
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete [data]="sourceSearchList" name="source" placeHolder="Origin"
+                            searchKeyword="Name" (selected)='selectedSource($event)'
+                            (inputChanged)='onSourceChangeSearch($event)' [itemTemplate]="sourceItemTemplate"
+                            historyListMaxNumber="3" [(ngModel)]="calculationParams.source"
+                            [notFoundTemplate]="notFoundTemplate"
+                            (inputCleared)='clearSource()'>
+                        </ng-autocomplete>
+
+                        <ng-template #sourceItemTemplate let-item>
+                            <a [innerHTML]="item.IATA + ': ' + item.Name + ', ' + item.City + ', '+ item.Country"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete [data]="destinationSearchList" name="destination" placeHolder="Destination"
+                            searchKeyword="Name" (selected)='selectedDestination($event)'
+                            (inputChanged)='onDestinationChangeSearch($event)'
+                            (inputCleared)='clearDestination()'
+                            [(ngModel)]="calculationParams.destination" 
+                            [itemTemplate]="destinationItemTemplate"
+                            [notFoundTemplate]="notFoundTemplate">
+                        </ng-autocomplete>
+
+                        <ng-template #destinationItemTemplate let-item>
+                            <a [innerHTML]="item.IATA + ': ' + item.Name + ', ' + item.City + ', '+ item.Country"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="uc_radioBlock">
+                        <span class="checkActive">Economy</span>
+                        <label class="radio">
+                            <input type="radio" name="class" value="economy"
+                                [(ngModel)]="calculationParams.ticketType" (change)="calculate()" />
+                            <span class="primary"></span>
+                        </label>
+
+                    </div>
+                    <div class="uc_radioBlock">
+                        <span class="checkActive">Premium</span>
+                        <label class="radio">
+                            <input type="radio" name="class" value="premium"
+                                [(ngModel)]="calculationParams.ticketType" (change)="calculate()" />
+                            <span class="primary"></span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="uc_radioBlock">
+                        <span class="checkActive">One way</span>
+                        <label class="radio">
+                            <input type="radio" name="trip" id="oneWayTrip" value="oneway"
+                                [(ngModel)]="calculationParams.tripType" (change)="calculate()" />
+                            <span class="primary"></span>
+                        </label>
+
+                    </div>
+                    <div class="uc_radioBlock">
+                        <span class="checkActive">Return Trip</span>
+                        <label class="radio">
+                            <input type="radio" ame="trip" id="roundedTrip" value="return"
+                                [(ngModel)]="calculationParams.tripType" (change)="calculate()" />
+                            <span class="primary"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="ui_captureContent first">
+                        <span class="label">Carbon Footprint Estimate</span>
+                        <span class="price">{{footPrint}} Kgs CO<small>2</small></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="ui_captureContent ">
+                        <span class="label">Ucapture Carbon Offset Estimate</span>
+                        <span class="price">300 Kgs</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="ui_captureContent">
+                        <span class="label">Carbon Neutral Offset Purchase </span>
+                        <span class="price">200 Kgs</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="uc-popup-partner-btn active" (click)="calculate()">
+                        <span>Purchase Offsets</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="uc-popup-partner-btn transparent active" (click)="scrapValuesFromXpedia()">
+                        <span>Store Calculations</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="popCheck">
+                        <label class="checkbox"><input type="checkbox">
+                            <span class="primary"></span>
+                        </label>
+                        <span class="checkActive">Don't show this message again.</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>

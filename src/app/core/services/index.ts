@@ -1,7 +1,9 @@
 import { ApiService } from './api.service';
+import { CalculatorService } from './calculator.service';
 
 export const services = [
-  ApiService
+  ApiService,
+  CalculatorService
 ];
 
 export * from './api.service';
